@@ -1,11 +1,13 @@
 <template>
     <div>
+        <h1>{{ title }}</h1>
+        <h2 v-if="extD">{{ titleD }}</h2>
         <h1>{{ name }}</h1>
         <p>{{ nr }}</p>
         <p v-if='gender'>man</p>
         <p v-else>woman</p>
         <p v-for="customer in customers" :key="customer.id">
- {{ customer.name }}, {{ customer.city }}</p>
+ {{ customer.name + "  " + customer.city }}</p>
     </div>
 
 
@@ -15,6 +17,11 @@
 <script>
 export default {
     name: 'App',
+    props: {
+        title: String,
+        titleD: String,
+        extD: Boolean
+    },
     components:
         {},
     data: () => ({
